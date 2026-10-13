@@ -1,182 +1,189 @@
 <div align="center">
 
-# 📅 Rutina
+# Rutina
 
-> Tareas diarias y notas rápidas, siempre contigo.
+**Organiza tus tareas, guarda tus ideas y conversa con IA, todo desde un mismo lugar.**
 
-Una **Progressive Web App (PWA)** para organizar tus tareas repetitivas del día a día y guardar notas rápidas con formato Markdown. Funciona 100% offline y almacena todo en tu dispositivo.
+Una aplicación web progresiva (PWA) para gestionar rutinas diarias y notas rápidas. Tus datos se almacenan en el dispositivo y la aplicación puede utilizarse sin conexión.
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38BDF8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![PWA](https://img.shields.io/badge/PWA-enabled-5A0FC8?logo=pwa&logoColor=white)](https://developer.mozilla.org/docs/Web/Progressive_web_apps)
-[![Demo](https://img.shields.io/badge/Demo-ver%20en%20vivo-22c55e)](https://roaring-empanada-bf1f5a.netlify.app/notas)
+[![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38BDF8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![PWA](https://img.shields.io/badge/PWA-instalable-5A0FC8?logo=pwa&logoColor=white)](https://developer.mozilla.org/docs/Web/Progressive_web_apps)
+
+[**Abrir demo**](https://roaring-empanada-bf1f5a.netlify.app/notas)
 
 </div>
 
 ---
 
-## 🔗 Demo en vivo
+## Contenido
 
-Puedes probar la aplicación desplegada aquí:
+- [Demo](#demo)
+- [Características](#características)
+- [Tecnologías](#tecnologías)
+- [Requisitos](#requisitos)
+- [Instalación y desarrollo](#instalación-y-desarrollo)
+- [Comandos disponibles](#comandos-disponibles)
+- [Compilación y despliegue](#compilación-y-despliegue)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Arquitectura y almacenamiento](#arquitectura-y-almacenamiento)
+- [Markdown compatible](#markdown-compatible)
+- [Privacidad](#privacidad)
+- [Licencia](#licencia)
 
-👉 **[rutina.netlify.app](https://roaring-empanada-bf1f5a.netlify.app/notas)**
+## Demo
 
-> 💡 Para instalarla como app en tu móvil o escritorio, ábrela en el navegador y elige la opción *"Añadir a pantalla de inicio"* o *"Instalar aplicación"*.
+Prueba la aplicación en [la demo en vivo](https://roaring-empanada-bf1f5a.netlify.app/notas).
 
----
+Para instalarla en un móvil o escritorio, abre la demo en un navegador compatible y selecciona **Instalar aplicación** o **Añadir a pantalla de inicio**.
 
-## ✨ Características
+## Características
 
-- **Tareas diarias** — crea tareas que se repitan cada día a una hora concreta.
-- **Duración configurable** — repite una tarea para siempre o durante N días, semanas o meses. Las tareas expiradas se marcan automáticamente como finalizadas.
-- **Progreso diario** — barra de progreso con el porcentaje de tareas completadas.
-- **Notas rápidas en Markdown** — escribe notas con títulos, negrita, cursiva, listas, citas y bloques de código.
-- **Editor con toolbar** — botones para dar formato sin escribir Markdown a mano.
-- **Vista previa** — alterna entre edición y vista previa al instante.
-- **Colores** — personaliza cada nota con 6 colores disponibles.
-- **Búsqueda** — encuentra notas al instante por título o contenido.
-- **Confirmaciones** — diálogo de confirmación antes de eliminar tareas o notas.
-- **Offline-first** — toda la información se guarda en IndexedDB (Dexie) y funciona sin conexión.
-- **Instalable** — como PWA, puedes añadirla a la pantalla de inicio de tu móvil o escritorio.
-- **Tema claro/oscuro** — se adapta automáticamente a las preferencias del sistema.
+### Tareas
 
-## 🛠️ Tecnologías
+- Crea tareas diarias y asígnales una hora.
+- Configura su repetición indefinida o por un número determinado de días, semanas o meses.
+- Consulta el progreso del día y marca las tareas completadas.
+- Las tareas cuyo período de repetición ha terminado se muestran como finalizadas.
+
+### Notas
+
+- Crea y busca notas por título o contenido.
+- Escribe en Markdown con la barra de herramientas y alterna entre edición y vista previa.
+- Personaliza las tarjetas con seis colores.
+
+### Chat con IA local
+
+- Ejecuta modelos directamente en el dispositivo con WebLLM y WebGPU: SmolLM2 360M, Qwen 2.5 0.5B y Llama 3.2 3B.
+- Crea, recupera y elimina conversaciones que se guardan automáticamente en el dispositivo.
+- Consulta el estado de descarga de cada modelo y una estimación de compatibilidad del dispositivo.
+- Visualiza las respuestas con formato Markdown.
+
+La primera descarga de un modelo requiere conexión a Internet. Después, WebLLM puede reutilizar sus archivos desde la caché del navegador; el navegador podría eliminarlos para liberar espacio. La compatibilidad y el consumo de memoria son estimaciones: un modelo puede no ejecutarse aunque el dispositivo aparezca como compatible.
+
+### Aplicación
+
+- Accede a tareas y notas sin conexión.
+- Instálala como PWA en dispositivos compatibles.
+- Usa el tema claro u oscuro según la preferencia del sistema.
+- Protege las acciones de eliminación con diálogos de confirmación.
+
+## Tecnologías
 
 | Área | Tecnología |
-|------|-----------|
-| Framework | [React 19](https://react.dev/) |
+| --- | --- |
+| Interfaz | [React 19](https://react.dev/) |
 | Lenguaje | [TypeScript 6](https://www.typescriptlang.org/) |
-| Build | [Vite 8](https://vitejs.dev/) |
+| Desarrollo y compilación | [Vite 8](https://vite.dev/) |
 | Estilos | [Tailwind CSS 4](https://tailwindcss.com/) |
-| Router | [React Router 7](https://reactrouter.com/) |
-| Base de datos | [Dexie 4](https://dexie.org/) (IndexedDB) |
+| Enrutamiento | [React Router 7](https://reactrouter.com/) |
+| Almacenamiento local | [Dexie 4](https://dexie.org/) sobre IndexedDB |
+| Modelos de IA locales | [WebLLM](https://webllm.mlc.ai/) y WebGPU |
 | PWA | [vite-plugin-pwa](https://vite-pwa-org.netlify.app/) |
 | Linter | [oxlint](https://oxc.rs/) |
 
-## 🚀 Inicio rápido
+## Requisitos
+
+- [Node.js](https://nodejs.org/) y npm.
+- Un navegador moderno para ejecutar la aplicación.
+- Para usar el chat: navegador con WebGPU, contexto seguro (HTTPS o `localhost`) y recursos suficientes para el modelo seleccionado.
+
+## Instalación y desarrollo
 
 ```bash
-# Clona el repositorio
-git clone <url-del-repo>
-cd RutinaApp
-
-# Instala las dependencias
+git clone https://github.com/juand-22/rutinaapp.git
+cd rutinaapp
 npm install
-
-# Inicia el servidor de desarrollo
 npm run dev
 ```
 
-Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
+Abre la dirección local que indique Vite (por defecto, [http://localhost:5173](http://localhost:5173)).
 
-## 📦 Scripts
+## Comandos disponibles
 
 | Comando | Descripción |
-|---------|-------------|
+| --- | --- |
 | `npm run dev` | Inicia el servidor de desarrollo con recarga en caliente. |
-| `npm run build` | Compila TypeScript y genera el bundle de producción. |
-| `npm run preview` | Previsualiza la build de producción localmente. |
-| `npm run lint` | Ejecuta el linter (oxlint) sobre el código. |
+| `npm run build` | Comprueba los tipos y genera la versión de producción. |
+| `npm run preview` | Sirve localmente la compilación de producción. |
+| `npm run lint` | Analiza el código con oxlint. |
 
-## 🌐 Despliegue (PWA)
+## Compilación y despliegue
 
-Para que la aplicación funcione como **PWA** (instalable, offline y con service worker), **no basta con ejecutar `npm run dev`**. El service worker y el manifest solo se generan en la build de producción. Sigue estos pasos:
+Genera la aplicación para producción y, si lo deseas, pruébala en local:
 
 ```bash
-# 1. Genera la build de producción
 npm run build
-
-# 2. (Opcional) Prueba la build en local
 npm run preview
 ```
 
-El resultado de la compilación se genera en la carpeta `dist/`. Sube el contenido de esa carpeta a cualquier servicio de hosting estático:
+La compilación se guarda en `dist/`. Publica su contenido en un proveedor de hosting estático, como [Netlify](https://www.netlify.com/), [Vercel](https://vercel.com/), [Cloudflare Pages](https://pages.cloudflare.com/) o [GitHub Pages](https://pages.github.com/).
 
-- [Netlify](https://www.netlify.com/) (arrastra la carpeta `dist` o conecta tu repositorio)
-- [Vercel](https://vercel.com/)
-- [Cloudflare Pages](https://pages.cloudflare.com/)
-- [GitHub Pages](https://pages.github.com/)
-- Cualquier hosting estático que sirva sobre **HTTPS** (requisito obligatorio para las PWA).
+Para habilitar la instalación y el funcionamiento offline de la PWA, el sitio debe servirse mediante **HTTPS**; `localhost` es la excepción durante el desarrollo. El service worker y el manifest se generan como parte de la compilación de producción.
 
-> ⚠️ **Importante:** las PWA requieren que el sitio se sirva por **HTTPS** (excepto `localhost`). Sin HTTPS, el service worker no se registrará y la app no se podrá instalar ni funcionar offline.
+## Estructura del proyecto
 
-Una vez desplegada, los visitantes podrán instalar la app en su dispositivo desde el menú del navegador (*"Instalar aplicación"* o *"Añadir a pantalla de inicio"*).
-
-## 📁 Estructura del proyecto
-
-```
+```text
 src/
 ├── features/
-│   ├── tasks/                 # Feature de tareas diarias
-│   │   ├── components/
-│   │   │   ├── TaskForm.tsx   # Formulario crear/editar tarea
-│   │   │   └── TaskItem.tsx   # Tarjeta de tarea
-│   │   ├── pages/
-│   │   │   └── TaskPage.tsx   # Página principal de tareas
+│   ├── chat/
+│   │   ├── pages/ChatPage.tsx       # Chat local con IA
 │   │   └── index.ts
-│   └── notes/                 # Feature de notas rápidas
-│       ├── components/
-│       │   ├── NoteCard.tsx   # Tarjeta de nota
-│       │   └── NoteForm.tsx   # Editor de nota con Markdown
-│       ├── pages/
-│       │   └── NotesPage.tsx  # Página de notas
-│       ├── constants.ts       # Colores de las notas
+│   ├── notes/
+│   │   ├── components/              # Formulario y tarjeta de nota
+│   │   ├── pages/NotesPage.tsx      # Página de notas
+│   │   ├── constants.ts             # Colores disponibles
+│   │   └── index.ts
+│   └── tasks/
+│       ├── components/              # Formulario y elemento de tarea
+│       ├── pages/TaskPage.tsx       # Página de tareas
 │       └── index.ts
+├── routes/index.tsx                 # Rutas de la aplicación
 ├── shared/
-│   ├── components/            # Componentes reutilizables
-│   │   ├── AppShell.tsx       # Layout con navegación inferior
-│   │   ├── ConfirmDialog.tsx  # Diálogo de confirmación
-│   │   ├── Icons.tsx          # Iconos SVG
-│   │   ├── MarkdownEditor.tsx # Editor Markdown con toolbar
-│   │   ├── MarkdownView.tsx   # Renderizador de Markdown
-│   │   ├── Modal.tsx          # Modal bottom-sheet
-│   │   └── markdown.ts        # Parser Markdown
-│   ├── db/
-│   │   └── database.ts        # Instancia Dexie y tipos
-│   └── utils/
-│       └── date.ts            # Utilidades de fecha y repetición
-├── routes/
-│   └── index.tsx              # Definición de rutas
+│   ├── components/                  # Componentes y utilidades compartidos
+│   ├── db/database.ts               # Base de datos y modelos de datos
+│   └── utils/date.ts                # Utilidades de fechas y repetición
 ├── App.tsx
 ├── main.tsx
-└── index.css                  # Tema, animaciones y estilos Markdown
+└── index.css
 ```
 
-## 🧩 Arquitectura
+## Arquitectura y almacenamiento
 
-El proyecto sigue una **arquitectura por features** (tareas y notas) con una capa `shared` para componentes, base de datos y utilidades comunes. Cada feature es autosuficiente y se comunica con la base de datos a través de Dexie.
+La aplicación organiza las funcionalidades por áreas (`features`) y concentra en `shared` los componentes, la base de datos y las utilidades reutilizables.
 
-La persistencia se realiza íntegramente en **IndexedDB** mediante Dexie, por lo que la app funciona sin conexión y no requiere backend. Los hooks de `dexie-react-hooks` (`useLiveQuery`) mantienen la UI sincronizada con los datos en tiempo real.
+Las tareas, notas y conversaciones se guardan localmente en **IndexedDB** mediante Dexie. No se necesita un backend para utilizarlas, y los hooks de `dexie-react-hooks` mantienen la interfaz sincronizada con los cambios.
 
-## 📝 Sintaxis Markdown soportada
+El chat genera respuestas en el dispositivo mediante WebGPU. Los modelos disponibles tienen requisitos aproximados de memoria GPU de **580 MB** (SmolLM2 360M), **1.061 MB** (Qwen 2.5 0.5B) y **2.952 MB** (Llama 3.2 3B). La primera descarga necesita conexión y espacio local. Los archivos se conservan en la caché del navegador para poder reutilizarlos sin conexión, pero el navegador puede desalojarlos. La estimación de compatibilidad no representa una medición exacta de la memoria GPU libre.
+
+## Markdown compatible
+
+El editor y el chat admiten los siguientes elementos:
 
 | Elemento | Sintaxis |
-|----------|----------|
-| Título 2 | `## Título` |
-| Título 3 | `### Título` |
-| Negrita | `**texto**` |
-| Cursiva | `*texto*` |
-| Código inline | `` `código` `` |
-| Bloque de código | ` ``` ` |
-| Lista | `- elemento` |
-| Lista ordenada | `1. elemento` |
-| Cita | `> texto` |
-| Enlace | `[texto](url)` |
+| --- | --- |
+| Encabezados de nivel 1 a 3 | `# Título`, `## Título` y `### Título` |
+| Negrita y cursiva | `**texto**` y `*texto*` |
+| Código en línea | `` `código` `` |
+| Bloque de código | Bloque delimitado con tres acentos graves |
+| Listas | `- elemento` o `1. elemento` |
+| Citas | `> texto` |
+| Enlaces | `[texto](https://ejemplo.com)` |
 
-## 🔒 Privacidad
+## Privacidad
 
-Tus datos se almacenan **únicamente en tu dispositivo** (IndexedDB). No se envían a ningún servidor y no hay cuentas ni seguimiento.
+Las tareas, notas y conversaciones se guardan en el almacenamiento local del navegador y no requieren una cuenta ni un servidor de la aplicación. El chat se procesa localmente; al descargar un modelo por primera vez, sus archivos se obtienen a través de Internet y se guardan en la caché del navegador.
 
-## 📄 Licencia
+## Licencia
 
-Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo [`LICENSE`](./LICENSE) para más información.
 
 ---
 
 <div align="center">
 
-Hecho con 💜 y React.
+Desarrollado con React y TypeScript.
 
 </div>

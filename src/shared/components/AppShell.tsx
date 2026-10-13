@@ -1,9 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { ListIcon, NoteIcon } from "./Icons";
+import { ChatIcon, ListIcon, NoteIcon } from "./Icons";
 
 const navItems = [
   { to: "/", label: "Tareas", icon: ListIcon, end: true },
   { to: "/notas", label: "Notas", icon: NoteIcon, end: false },
+  { to: "/chat", label: "Chat IA", icon: ChatIcon, end: false },
 ];
 
 export default function AppShell() {

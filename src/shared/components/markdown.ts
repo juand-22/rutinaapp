@@ -23,10 +23,16 @@ function renderInline(text: string): string {
   text = text.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   // Cursiva: *text* (que no sea parte de negrita)
   text = text.replace(/(^|[^*])\*([^*]+)\*/g, "$1<em>$2</em>");
-  // Enlaces [text](url)
+  // Only allow safe destinations for links rendered from user or model content.
   text = text.replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
-    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>',
+    (match, label: string, href: string) => {
+      const isSafeUrl =
+        /^(https?:\/\/|mailto:|\/(?!\/)|#|\.{1,2}\/)/i.test(href);
+      return isSafeUrl
+        ? `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}</a>`
+        : match;
+    },
   );
   return text;
 }

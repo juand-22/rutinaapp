@@ -29,6 +29,23 @@ export interface Note {
   updatedAt: number;
 }
 
+export type ChatMessageRole = "user" | "assistant";
+
+export interface ChatMessage {
+  id: string;
+  role: ChatMessageRole;
+  content: string;
+}
+
+export interface ChatConversation {
+  id: string;
+  title: string;
+  modelId: string;
+  messages: ChatMessage[];
+  createdAt: number;
+  updatedAt: number;
+}
+
 export type NoteColor =
   | "yellow"
   | "pink"
@@ -40,12 +57,18 @@ export type NoteColor =
 class RutinaDatabase extends Dexie {
   tasks!: Table<Task, number>;
   notes!: Table<Note, number>;
+  chats!: Table<ChatConversation, string>;
 
   constructor() {
     super("rutina-db");
     this.version(2).stores({
       tasks: "++id, title, time, createdAt, repeatEnd",
       notes: "++id, title, color, updatedAt",
+    });
+    this.version(3).stores({
+      tasks: "++id, title, time, createdAt, repeatEnd",
+      notes: "++id, title, color, updatedAt",
+      chats: "id, updatedAt",
     });
   }
 }
